@@ -1,0 +1,1608 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://christophernhill.github.io/aicr-docs-genai-experiment/getting-started/hardware/networking/">
+      
+      
+        <link rel="prev" href="../storage/">
+      
+      
+        <link rel="next" href="../../requesting-access/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../images/aicr-icon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Networking - AICR Docs (AI-Generated Experiment)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#networking" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AICR Docs (AI-Generated Experiment)" class="md-header__button md-logo" aria-label="AICR Docs (AI-Generated Experiment)" data-md-component="logo">
+      
+  <img src="../../../images/aicr-icon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AICR Docs (AI-Generated Experiment)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Networking
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../quick-start/" class="md-tabs__link">
+          
+  
+  
+  Get Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Index
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AICR Docs (AI-Generated Experiment)" class="md-nav__button md-logo" aria-label="AICR Docs (AI-Generated Experiment)" data-md-component="logo">
+      
+  <img src="../../../images/aicr-icon.svg" alt="logo">
+
+    </a>
+    AICR Docs (AI-Generated Experiment)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Get Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware Details
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware Details
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../b200-nodes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B200 GPU Nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rtx-nodes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RTX PRO 6000 GPU Nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service-nodes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service Nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage (VAST)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fabric-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fabric Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fabric Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#per-node-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-Node Connectivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-b200-rail-optimized-infiniband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. B200 Rail-Optimized InfiniBand
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. B200 Rail-Optimized InfiniBand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rail-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rail Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expansion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cluster-infiniband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Cluster InfiniBand
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cluster InfiniBand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connected-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connected Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-ethernet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core Ethernet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-out-of-band-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Out-of-Band Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fabric-management-nvidia-ufm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fabric Management: NVIDIA UFM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregate-bandwidth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aggregate Bandwidth
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../requesting-access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Requesting Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fabric-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fabric Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fabric Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#per-node-connectivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-Node Connectivity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-b200-rail-optimized-infiniband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. B200 Rail-Optimized InfiniBand
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. B200 Rail-Optimized InfiniBand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rail-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rail Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expansion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cluster-infiniband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Cluster InfiniBand
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cluster InfiniBand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connected-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connected Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-ethernet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core Ethernet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-out-of-band-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Out-of-Band Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fabric-management-nvidia-ufm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fabric Management: NVIDIA UFM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregate-bandwidth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aggregate Bandwidth
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:getting-started" class="md-tag">Getting Started</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../../tags/#tag:infiniband" class="md-tag">InfiniBand</a>
+      
+    
+  </nav>
+
+
+
+<h1 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h1>
+<p>AICR uses <strong>four distinct network fabrics</strong>, each purpose-built for a specific traffic class. Two are InfiniBand (high-performance compute and storage) and two are Ethernet (management and hardware control). This separation ensures that GPU training traffic, storage I/O, management operations, and hardware control never compete for the same links.</p>
+<h2 id="fabric-overview">Fabric Overview<a class="headerlink" href="#fabric-overview" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Fabric</th>
+<th>Technology</th>
+<th>Switches</th>
+<th>Purpose</th>
+<th>Connected Nodes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>B200 Rail-Optimized IB</strong></td>
+<td>NDR InfiniBand</td>
+<td>12 (2 spine + 10 leaf)</td>
+<td>GPU-to-GPU training across B200 nodes</td>
+<td>B200 only</td>
+</tr>
+<tr>
+<td><strong>Cluster IB</strong></td>
+<td>NDR InfiniBand</td>
+<td>6 (2 spine + 4 leaf)</td>
+<td>Storage (VAST), MPI, all nodes</td>
+<td>All</td>
+</tr>
+<tr>
+<td><strong>Core Ethernet</strong></td>
+<td>25/100/400 GbE</td>
+<td>2x SN4700 (MLAG pair)</td>
+<td>Management, provisioning, user access</td>
+<td>All</td>
+</tr>
+<tr>
+<td><strong>Out-of-Band</strong></td>
+<td>1 GbE</td>
+<td>9x SN2201 (1 per rack)</td>
+<td>BMC/iDRAC hardware management</td>
+<td>All</td>
+</tr>
+</tbody>
+</table>
+<h3 id="per-node-connectivity">Per-Node Connectivity<a class="headerlink" href="#per-node-connectivity" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Node Type</th>
+<th>Count</th>
+<th>Rail-Optimized IB</th>
+<th>Cluster IB</th>
+<th>Core Ethernet</th>
+<th>OOB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B200</td>
+<td>31</td>
+<td>8x NDR 400G</td>
+<td>1x NDR 400G</td>
+<td>2x 25 GbE</td>
+<td>1x 1 GbE</td>
+</tr>
+<tr>
+<td>RTX PRO 6000</td>
+<td>19</td>
+<td>—</td>
+<td>2x NDR 400G</td>
+<td>2x 25 GbE</td>
+<td>1x 1 GbE</td>
+</tr>
+<tr>
+<td>Service</td>
+<td>32</td>
+<td>—</td>
+<td>1x NDR 400G</td>
+<td>2x 100 GbE</td>
+<td>1x 1 GbE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-b200-rail-optimized-infiniband">1. B200 Rail-Optimized InfiniBand<a class="headerlink" href="#1-b200-rail-optimized-infiniband" title="Permanent link">&para;</a></h2>
+<p>The highest-performance fabric in the cluster. It carries GPU-to-GPU traffic for distributed training across the 31 B200 nodes exclusively — no other node type connects to it.</p>
+<h3 id="rail-optimization">Rail Optimization<a class="headerlink" href="#rail-optimization" title="Permanent link">&para;</a></h3>
+<p>Each B200 node has 8 InfiniBand NICs, one per GPU. In the rail-optimized layout, all GPU[0]s across every node connect to the same leaf switch ("Rail 0"), all GPU[1]s to another leaf ("Rail 1"), and so on through Rail 7. This aligns with data-parallel training, where each GPU synchronizes gradients with the corresponding GPU on other nodes — that allreduce traffic stays within a single leaf switch hop.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Topology</td>
+<td>Rail-optimized leaf-spine (SuperPOD reference)</td>
+</tr>
+<tr>
+<td>Leaf switches</td>
+<td>10x NVIDIA QM9790 (NDR, 800G-capable)</td>
+</tr>
+<tr>
+<td>Spine switches</td>
+<td>2x NVIDIA QM9700 (NDR)</td>
+</tr>
+<tr>
+<td>Node-to-leaf speed</td>
+<td>NDR 400 Gb/s per link</td>
+</tr>
+<tr>
+<td>Spine-leaf speed</td>
+<td>NDR 800 Gb/s (bonded 2x400G)</td>
+</tr>
+<tr>
+<td>Total node ports</td>
+<td>248 (31 nodes x 8 GPUs)</td>
+</tr>
+<tr>
+<td>Bandwidth per node</td>
+<td>3,200 Gb/s (400 GB/s aggregate)</td>
+</tr>
+<tr>
+<td>Managed by</td>
+<td>2x NVIDIA R660 UFM appliances</td>
+</tr>
+</tbody>
+</table>
+<h3 id="expansion">Expansion<a class="headerlink" href="#expansion" title="Permanent link">&para;</a></h3>
+<p>The current 31 nodes nearly fill one NVIDIA Scalable Unit (32-node capacity). The spine switches already support a second SU, so the cluster can grow to <strong>63 B200 nodes</strong> (504 GPUs) by adding leaf switches and cabling — no recabling of existing nodes required.</p>
+<h2 id="2-cluster-infiniband">2. Cluster InfiniBand<a class="headerlink" href="#2-cluster-infiniband" title="Permanent link">&para;</a></h2>
+<p>The cluster-wide general-purpose InfiniBand network connecting every node type — B200, RTX, service, and VAST storage. It carries storage I/O and MPI communication for RTX multi-node jobs.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Topology</td>
+<td>Leaf-spine</td>
+</tr>
+<tr>
+<td>Leaf switches</td>
+<td>4x NVIDIA QM9790</td>
+</tr>
+<tr>
+<td>Spine switches</td>
+<td>2x NVIDIA QM9700</td>
+</tr>
+<tr>
+<td>Total endpoint ports</td>
+<td>133</td>
+</tr>
+<tr>
+<td>Aggregate endpoint bandwidth</td>
+<td>5,950 GB/s</td>
+</tr>
+<tr>
+<td>Managed by</td>
+<td>2x NVIDIA R660 UFM appliances</td>
+</tr>
+</tbody>
+</table>
+<h3 id="connected-endpoints">Connected Endpoints<a class="headerlink" href="#connected-endpoints" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Ports</th>
+<th>Speed</th>
+<th>Aggregate BW</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B200 nodes (31)</td>
+<td>31</td>
+<td>NDR 400G</td>
+<td>1,550 GB/s</td>
+</tr>
+<tr>
+<td>RTX nodes (19)</td>
+<td>38</td>
+<td>NDR 400G</td>
+<td>1,900 GB/s</td>
+</tr>
+<tr>
+<td>Service nodes (32)</td>
+<td>32</td>
+<td>NDR 400G</td>
+<td>1,600 GB/s</td>
+</tr>
+<tr>
+<td>VAST CBoxes (14)</td>
+<td>28</td>
+<td>NDR 200G</td>
+<td>700 GB/s</td>
+</tr>
+<tr>
+<td>UFM appliances (2)</td>
+<td>4</td>
+<td>NDR 400G</td>
+<td>200 GB/s</td>
+</tr>
+</tbody>
+</table>
+<p>RTX nodes have 2 IB ports on this fabric, used flexibly for both storage and MPI. The 100 GB/s aggregate per RTX node is ample for VAST parallel I/O and moderate-scale distributed training. Service nodes each have 1 IB port, ensuring that Globus transfers and file staging run at full InfiniBand speed to VAST.</p>
+<h2 id="3-core-ethernet">3. Core Ethernet<a class="headerlink" href="#3-core-ethernet" title="Permanent link">&para;</a></h2>
+<p>Handles management, provisioning, user SSH sessions, web portals (OnDemand), and IP-based services. Does <strong>not</strong> carry GPU compute or storage I/O — those run over InfiniBand.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Switches</td>
+<td>2x NVIDIA SN4700 (Spectrum-3, MLAG pair)</td>
+</tr>
+<tr>
+<td>GPU nodes</td>
+<td>2x 25 GbE each (lightweight management)</td>
+</tr>
+<tr>
+<td>Service nodes</td>
+<td>2x 100 GbE each (gateway role, 4x faster)</td>
+</tr>
+<tr>
+<td>VAST Ethernet CBoxes</td>
+<td>400 GbE (IP-based NFS/S3 access)</td>
+</tr>
+</tbody>
+</table>
+<p>Service nodes get 100 GbE because they are the front door — user SSH, OnDemand web traffic, and Globus transfers all flow through these Ethernet connections. GPU nodes only need 25 GbE for management since their heavy I/O runs over InfiniBand.</p>
+<h2 id="4-out-of-band-management">4. Out-of-Band Management<a class="headerlink" href="#4-out-of-band-management" title="Permanent link">&para;</a></h2>
+<p>Dedicated hardware management access independent of the operating system, connecting to each node's BMC (iDRAC on Dell servers).</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Switches</td>
+<td>9x NVIDIA SN2201 (1 per rack)</td>
+</tr>
+<tr>
+<td>Ports per switch</td>
+<td>48x 1 GbE + 4x 100 GbE uplink</td>
+</tr>
+<tr>
+<td>Total endpoints</td>
+<td>107 (all nodes + VAST devices)</td>
+</tr>
+<tr>
+<td>Purpose</td>
+<td>iDRAC, remote console, power control, firmware updates</td>
+</tr>
+</tbody>
+</table>
+<p>The OOB network is intentionally separate from all data and management traffic. Even if InfiniBand and Ethernet are completely down, administrators can reach every device via its BMC.</p>
+<h2 id="fabric-management-nvidia-ufm">Fabric Management: NVIDIA UFM<a class="headerlink" href="#fabric-management-nvidia-ufm" title="Permanent link">&para;</a></h2>
+<p>All InfiniBand switches are managed by <strong>4 NVIDIA R660 UFM appliances</strong> in redundant pairs:</p>
+<table>
+<thead>
+<tr>
+<th>UFM Pair</th>
+<th>Managed Fabric</th>
+<th>Switches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2x R660</td>
+<td>B200 rail-optimized IB</td>
+<td>12 switches</td>
+</tr>
+<tr>
+<td>2x R660</td>
+<td>Cluster IB</td>
+<td>6 switches</td>
+</tr>
+</tbody>
+</table>
+<p>UFM provides real-time fabric monitoring, topology discovery, adaptive routing, SHARP (in-network allreduce acceleration), cable diagnostics, and telemetry streaming.</p>
+<h2 id="aggregate-bandwidth">Aggregate Bandwidth<a class="headerlink" href="#aggregate-bandwidth" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Fabric</th>
+<th>Total Endpoint BW</th>
+<th>Primary Traffic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B200 Rail IB</td>
+<td>12,400 GB/s</td>
+<td>GPU training (allreduce)</td>
+</tr>
+<tr>
+<td>Cluster IB</td>
+<td>5,950 GB/s</td>
+<td>Storage I/O, MPI</td>
+</tr>
+<tr>
+<td>Core Ethernet</td>
+<td>~230 Gb/s</td>
+<td>Management, user access</td>
+</tr>
+<tr>
+<td>OOB</td>
+<td>~107 Mb/s</td>
+<td>Hardware control</td>
+</tr>
+</tbody>
+</table>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../b200-nodes/">B200 Nodes</a> — Tier-1 compute with dedicated GPU fabric</li>
+<li><a href="../rtx-nodes/">RTX PRO 6000 Nodes</a> — Tier-2 compute on shared fabric</li>
+<li><a href="../storage/">Storage</a> — VAST Data platform</li>
+<li><a href="../../gpu/multi-gpu.md">Multi-GPU Computing</a> — NCCL and InfiniBand for training</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 5, 2026 23:02:06 UTC">April 5, 2026</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://accessibility.mit.edu/">Accessibility</a> | This is an experimental AI-generated documentation site — content requires human review
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
